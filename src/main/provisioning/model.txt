@@ -19,7 +19,7 @@
 [feature name=launchpad-testing]
 # Dependencies
 [artifacts]
-  org.apache.sling/org.apache.sling.launchpad/10-SNAPSHOT/slingstart
+  org.apache.sling/org.apache.sling.starter/10-SNAPSHOT/slingstart
   org.apache.sling/org.apache.sling.launchpad.test-bundles/0.0.3-SNAPSHOT/slingfeature
 
 # additional configuration for testing
