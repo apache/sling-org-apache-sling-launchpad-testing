@@ -24,7 +24,7 @@
             <jdk>9</jdk>
         </jdks>
         <archivePatterns>
-            <archivePattern>**/sling/logs/*.log</archivePattern>
+            <archivePattern>**/logs/*.log</archivePattern>
         </archivePatterns>
     </jenkins>
 </sling-module>
