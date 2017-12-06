@@ -186,25 +186,51 @@
             </properties>
         </profile>
         <profile>
-             <id>debug</id>
+             <id>debug-no-java9</id>
              <activation>
                 <property>
                     <name>debug</name>
                 </property>
+                <jdk>!9</jdk>
              </activation>
              <properties>
                 <sling.vm.options>${sling.default.vm.options} -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000</sling.vm.options>
              </properties>
         </profile>
         <profile>
-             <id>no-debug</id>
+             <id>debug-java9</id>
+             <activation>
+                <property>
+                    <name>debug</name>
+                </property>
+                <jdk>9</jdk>
+             </activation>
+             <properties>
+                <sling.vm.options>${sling.default.vm.options} --add-modules=java.se.ee -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000</sling.vm.options>
+             </properties>
+        </profile>
+        <profile>
+             <id>no-debug-no-java9</id>
              <activation>
                 <property>
                     <name>!debug</name>
                 </property>
+                <jdk>!9</jdk>
              </activation>
              <properties>
                 <sling.vm.options>${sling.default.vm.options}</sling.vm.options>
+             </properties>
+        </profile>
+        <profile>
+             <id>no-debug-java9</id>
+             <activation>
+                <property>
+                    <name>!debug</name>
+                </property>
+                <jdk>9</jdk>
+             </activation>
+             <properties>
+                <sling.vm.options>${sling.default.vm.options} --add-modules=java.se.ee</sling.vm.options>
              </properties>
         </profile>
     </profiles>
