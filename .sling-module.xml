@@ -22,6 +22,7 @@
         <jdks>
             <jdk>1.8</jdk>
             <jdk>9</jdk>
+            <jdk>10</jdk>
         </jdks>
         <archivePatterns>
             <archivePattern>**/logs/*.log</archivePattern>
