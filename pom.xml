@@ -29,7 +29,7 @@
 
     <artifactId>org.apache.sling.launchpad.testing</artifactId>
     <packaging>slingstart</packaging>
-    <version>10-SNAPSHOT</version>
+    <version>10</version>
 
     <name>Apache Sling Launchpad Testing</name>
     <description>
@@ -41,14 +41,15 @@
         <connection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-launchpad-testing.git</connection>
         <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-launchpad-testing.git</developerConnection>
         <url>https://gitbox.apache.org/repos/asf?p=sling-org-apache-sling-launchpad-testing.git</url>
-    </scm>
+      <tag>org.apache.sling.launchpad.testing-10</tag>
+  </scm>
 
     <properties>
         <sling.java.version>7</sling.java.version>
         
         <!-- empty by design, will be activated using profiles -->
-        <sling.debug.options/>
-        <sling.jpms.vm.options/>
+        <sling.debug.options />
+        <sling.jpms.vm.options />
         
         <sling.vm.options>-Xmx1024m -Djava.awt.headless=true ${sling.debug.options} ${sling.jpms.vm.options}</sling.vm.options>
 
