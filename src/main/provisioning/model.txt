@@ -44,3 +44,8 @@
 create path /repoinit/provisioningModelTest
 
 create service user provisioningModelUser
+
+create path (sling:OrderedFolder) /ANON_CAN_READ
+set ACL for everyone
+  allow jcr:read on /ANON_CAN_READ
+end
