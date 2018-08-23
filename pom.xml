@@ -49,9 +49,8 @@
         
         <!-- empty by design, will be activated using profiles -->
         <sling.debug.options />
-        <sling.jpms.vm.options />
         
-        <sling.vm.options>-Xmx1024m -Djava.awt.headless=true ${sling.debug.options} ${sling.jpms.vm.options}</sling.vm.options>
+        <sling.vm.options>-Xmx1024m -Djava.awt.headless=true ${sling.debug.options}</sling.vm.options>
 
         <!-- path suffix for HTTP access to Sling -->
         <http.base.path />
@@ -157,29 +156,6 @@
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <id>jpms</id>
-            <activation>
-                <jdk>[9,)</jdk>
-            </activation>
-            <properties>
-                <sling.jpms.vm.options>--add-modules=java.se.ee</sling.jpms.vm.options>
-            </properties>
-        </profile>
-        <profile>
-            <id>debug</id>
-            <activation>
-                <property>
-                    <name>debug</name>
-                </property>
-            </activation>
-            <properties>
-                <sling.debug.options>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000</sling.debug.options>
-            </properties>
-        </profile>
-    </profiles>
-    
     <dependencies>
       <!-- The integration tests -->
         <dependency>
