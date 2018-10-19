@@ -161,7 +161,7 @@
         <dependency>
              <groupId>org.apache.sling</groupId>
              <artifactId>org.apache.sling.launchpad.integration-tests</artifactId>
-             <version>1.0.8</version>
+             <version>${project.version}</version>
              <scope>test</scope>
              <exclusions>
                  <exclusion>
@@ -173,6 +173,23 @@
                      <artifactId>org.apache.felix.framework</artifactId>
                  </exclusion>
              </exclusions>
+        </dependency>
+
+        <!-- depend on the exact same Slingstart version -->
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.starter</artifactId>
+            <type>slingfeature</type>
+            <classifier>slingfeature</classifier>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.launchpad.test-bundles</artifactId>
+            <version>${project.version}</version>
+            <type>slingfeature</type>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Dependencies for the Test Build and Run -->
