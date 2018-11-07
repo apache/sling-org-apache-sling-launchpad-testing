@@ -122,7 +122,6 @@
                             <vmOpts>${sling.vm.options}</vmOpts>
                         </server>
                     </servers>
-                    <usePomDependencies>true</usePomDependencies>
                 </configuration>
             </plugin>
             <plugin>
