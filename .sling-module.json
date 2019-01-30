@@ -3,6 +3,7 @@
         "jdks": [8, 9, 10, 11],
         "archivePatterns": [
             "**/logs/*.loog"
-        ]
+        ],
+        "emailRecipients": ["dev@sling.apache.org"]
     }
 }
