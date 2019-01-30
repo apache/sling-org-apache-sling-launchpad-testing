@@ -1,8 +1,8 @@
-"sling-module": {
+{
     "jenkins": {
         "jdks": [8, 9, 10, 11],
         "archivePatterns": [
-            "**/logs/*.loog"
+            "**/logs/*.log"
         ],
         "emailRecipients": ["dev@sling.apache.org"]
     }
