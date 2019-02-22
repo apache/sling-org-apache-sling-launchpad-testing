@@ -6,6 +6,6 @@
         ],
         "emailRecipients": ["dev@sling.apache.org"],
         "additionalMavenParams": "-X",
-        "upstreamProjects": ["../sling-org-apache-sling-starter/master", "../sling/sling-org-apache-sling-launchpad-test-bundles"]
+        "upstreamProjects": ["../sling-org-apache-sling-starter/master", "../sling-org-apache-sling-launchpad-test-bundles/master"]
     }
 }
