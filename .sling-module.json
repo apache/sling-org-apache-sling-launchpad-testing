@@ -4,6 +4,7 @@
         "archivePatterns": [
             "**/logs/*.log"
         ],
-        "emailRecipients": ["dev@sling.apache.org"]
+        "emailRecipients": ["dev@sling.apache.org"],
+        "additionalMavenParams": "-X"
     }
 }
