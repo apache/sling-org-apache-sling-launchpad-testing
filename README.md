@@ -21,10 +21,9 @@ the instance is stopped.
 To run individual tests against this instance, with the exact same setup used
 in the full build, use
 
-  mvn clean install -Dlaunchpad.keep.running=true -Dhttp.port=8080 -Ddebug
+  mvn clean install -Dlaunchpad.keep.running=true -Dhttp.port=8080
 
-The -Ddebug option enables server-side debugging of the instance under test, 
-on port 8000. It can be omitted, of course.
+Use `-Dsling.debug.options="<debug options>"` for server-side debugging.
 
 Use CTRL-C to stop that instance.
 
