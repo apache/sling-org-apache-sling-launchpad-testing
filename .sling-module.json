@@ -1,5 +1,6 @@
 {
     "jenkins": {
+        "rebuildFrequency": "@daily",
         "jdks": [8, 11, 13],
         "archivePatterns": [
             "**/logs/*.log"
