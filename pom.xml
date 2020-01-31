@@ -64,9 +64,6 @@
         <!-- optionally exclude some integration tests  -->
         <failsafe.exclude />
 
-        <!-- sonar analysis probably doesn't make sense for this module as it's tests only -->
-        <sonar.skip>true</sonar.skip>
-
         <slf4j.version>1.7.6</slf4j.version>
         <logback.version>1.1.2</logback.version>
 
