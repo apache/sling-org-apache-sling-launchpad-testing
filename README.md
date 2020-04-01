@@ -11,21 +11,20 @@ runs integration tests against it via HTTP.
 
 ## Default build with integration tests
 
-The integration tests are provided by the sibling integration-tests 
+The integration tests are provided by the sibling [sling-org-apache-sling-launchpad-integration-tests](https://github.com/apache/sling-org-apache-sling-launchpad-integration-tests)
 module. By default the Sling instance to test is started, including a
 few test-specific bundles, the integration tests are executed and 
 the instance is stopped.
 
 ## Executing individual tests
 
-To run individual tests against this instance, with the exact same setup used
-in the full build, use
+To start a Sling instance with the exact same setup used in the full
+build of this module, use
 
   mvn clean install -Dlaunchpad.keep.running=true -Dhttp.port=8080
 
-Use `-Dsling.debug.options="<debug options>"` for server-side debugging.
+Adding `-Dsling.debug.options="<debug options>"` for server-side debugging if needed.
 
 Use CTRL-C to stop that instance.
 
-See the README.txt in the integration-tests module for how to run specific 
-tests against that instance.
+The tests of the [sling-org-apache-sling-launchpad-integration-tests](https://github.com/apache/sling-org-apache-sling-launchpad-integration-tests) module can then be run against this instance, as described there.
