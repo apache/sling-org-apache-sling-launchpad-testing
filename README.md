@@ -21,7 +21,7 @@ the instance is stopped.
 To start a Sling instance with the exact same setup used in the full
 build of this module, use
 
-  mvn clean install -Dlaunchpad.keep.running=true -Dhttp.port=8080
+    mvn clean install -Dlaunchpad.keep.running=true -Dhttp.port=8080
 
 Adding `-Dsling.debug.options="<debug options>"` for server-side debugging if needed.
 
