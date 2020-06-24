@@ -28,7 +28,6 @@
     </parent>
 
     <artifactId>org.apache.sling.launchpad.testing</artifactId>
-    <packaging>slingstart</packaging>
     <version>12-SNAPSHOT</version>
 
     <name>Apache Sling Launchpad Testing</name>
@@ -96,33 +95,68 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.sling</groupId>
-                <artifactId>slingstart-maven-plugin</artifactId>
+                <artifactId>slingfeature-maven-plugin</artifactId>
+                <version>1.3.6</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <aggregates>
+                        <aggregate>
+                            <!-- agregate the Sling Starter with the additonal testing files from this module -->
+                            <classifier>testing-oak_tar</classifier>
+                            <!-- depend on the exact same Slingstart version -->
+                            <includeArtifact>
+                                <groupId>org.apache.sling</groupId>
+                                <artifactId>org.apache.sling.starter</artifactId>
+                                <version>${project.version}</version>
+                                <classifier>oak_tar</classifier>
+                                <type>slingosgifeature</type>
+                            </includeArtifact>
+                            <filesInclude>model.json</filesInclude>
+                        </aggregate>
+                    </aggregates>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>start-container</id>
+                        <id>aggregate-features</id>
                         <goals>
-                            <goal>start</goal>
+                            <goal>attach-features</goal>
+                            <goal>aggregate-features</goal>
                         </goals>
                     </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>feature-launcher-maven-plugin</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <configuration>
+                    <launches>
+                        <launch>
+                            <!-- launch the new aggregate for the integration tests -->
+                            <id>sling-12-oak-tar</id>
+                            <feature>
+                                <groupId>${project.groupId}</groupId>
+                                <artifactId>${project.artifactId}</artifactId>
+                                <version>${project.version}</version>
+                                <classifier>testing-oak_tar</classifier>
+                                <type>slingosgifeature</type>
+                            </feature>
+                            <launcherArguments>
+                                <frameworkProperties>
+                                    <org.osgi.service.http.port>${http.port}</org.osgi.service.http.port>
+                                </frameworkProperties>
+                            </launcherArguments>
+                        </launch>
+                    </launches>
+                </configuration>
+                <executions>
                     <execution>
-                        <id>stop-container</id>
                         <goals>
+                            <goal>start</goal>
                             <goal>stop</goal>
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <servers>
-                        <server>
-                            <port>${http.port}</port>
-                            <controlPort>${sling.control.port}</controlPort>
-                            <runmode>${sling.run.modes}</runmode>
-                            <contextPath>${http.base.path}</contextPath>
-                            <vmOpts>${sling.vm.options}</vmOpts>
-                        </server>
-                    </servers>
-                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
@@ -174,24 +208,21 @@
                  </exclusion>
              </exclusions>
         </dependency>
-
-        <!-- depend on the exact same Slingstart version -->
+        <!-- missing dependencies for surefire; used but not pulled in transitively -->
         <dependency>
-            <groupId>org.apache.sling</groupId>
-            <artifactId>org.apache.sling.starter</artifactId>
-            <type>slingstart</type>
-            <version>${project.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.sling</groupId>
-            <artifactId>org.apache.sling.launchpad.test-bundles</artifactId>
-            <version>${project.version}</version>
-            <type>slingfeature</type>
-            <scope>provided</scope>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- Dependencies for the Test Build and Run -->
+        <dependency>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.feature.launcher</artifactId>
+            <version>1.1.2</version>
+            <scope>runtime</scope>
+        </dependency>
          <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
