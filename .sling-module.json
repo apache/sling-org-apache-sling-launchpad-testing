@@ -1,6 +1,7 @@
 {
     "jenkins": {
         "rebuildFrequency": "@daily",
+        "sonarQubeEnabled": false,
         "jdks": [8, 11, 14],
         "archivePatterns": [
             "**/logs/*.log"
