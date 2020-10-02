@@ -7,6 +7,6 @@
             "**/logs/*.log"
         ],
         "emailRecipients": ["dev@sling.apache.org"],
-        "upstreamProjects": ["../sling-org-apache-sling-starter/master", "../sling-org-apache-sling-launchpad-test-bundles/master"]
+        "upstreamProjects": ["../sling-org-apache-sling-starter/master"]
     }
 }
