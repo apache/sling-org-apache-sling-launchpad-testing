@@ -6,25 +6,24 @@
 
 This module is part of the [Apache Sling](https://sling.apache.org) project.
 
-This module builds a Sling instance using bundles from the trunk, and
-runs integration tests against it via HTTP.
+It builds a Sling instance using the [Sling Starter Feature](https://github.com/apache/sling-org-apache-sling-starter) which has the same version has this module, and runs integration tests against it via HTTP.
 
-## Default build with integration tests
+The tests are provided by the sibling [sling-org-apache-sling-launchpad-integration-tests](https://github.com/apache/sling-org-apache-sling-launchpad-integration-tests)
+module.
 
-The integration tests are provided by the sibling [sling-org-apache-sling-launchpad-integration-tests](https://github.com/apache/sling-org-apache-sling-launchpad-integration-tests)
-module. By default the Sling instance to test is started, including a
-few test-specific bundles, the integration tests are executed and 
-the instance is stopped.
-
-## Executing individual tests
+## How to execute and debug individual tests
 
 To start a Sling instance with the exact same setup used in the full
-build of this module, use
+build of this module, run
 
-    mvn clean install -Dlaunchpad.keep.running=true -Dhttp.port=8080
+    mvn clean package
 
-Adding `-Dsling.debug.options="<debug options>"` for server-side debugging if needed.
+and then use
 
-Use CTRL-C to stop that instance.
+    java -jar target/dependency/org.apache.sling.feature.launcher.jar -f target/slingfeature-tmp/feature-testing-oak_tar.json
 
-The tests of the [sling-org-apache-sling-launchpad-integration-tests](https://github.com/apache/sling-org-apache-sling-launchpad-integration-tests) module can then be run against this instance, as described there.
+To start the Sling instance to test on port 8080 by default, using appropriate `java` options for server-side debugging
+as needed. CTRL-C stops that instance.
+
+The tests of the [sling-org-apache-sling-launchpad-integration-tests](https://github.com/apache/sling-org-apache-sling-launchpad-integration-tests) module can then be run against this instance, as described
+in the README of that module.
