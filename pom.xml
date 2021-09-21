@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.apache.sling</groupId>
         <artifactId>sling</artifactId>
-        <version>33</version>
+        <version>45</version>
         <relativePath />
     </parent>
 
@@ -44,7 +44,8 @@
   </scm>
 
     <properties>
-        <sling.java.version>7</sling.java.version>
+        <sling.java.version>8</sling.java.version>
+        <project.build.outputTimestamp>1</project.build.outputTimestamp>
         
         <!-- empty by design, will be activated using profiles -->
         <sling.debug.options />
@@ -288,11 +289,13 @@
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>osgi.core</artifactId>
+            <version>6.0.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>osgi.cmpn</artifactId>
+            <version>6.0.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
