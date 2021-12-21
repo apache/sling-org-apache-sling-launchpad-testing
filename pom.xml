@@ -129,7 +129,7 @@
             <plugin>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>feature-launcher-maven-plugin</artifactId>
-                <version>0.1.0</version>
+                <version>0.1.2</version>
                 <configuration>
                     <launches>
                         <launch>
