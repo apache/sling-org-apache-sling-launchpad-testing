@@ -69,6 +69,7 @@
 
         <min.port>41000</min.port>
         <max.port>41199</max.port>
+        <it.startTimeoutSeconds>60</it.startTimeoutSeconds>
     </properties>
 
     <build>
@@ -147,6 +148,7 @@
                                     <org.osgi.service.http.port>${http.port}</org.osgi.service.http.port>
                                 </frameworkProperties>
                             </launcherArguments>
+                            <startTimeoutSeconds>${it.startTimeoutSeconds}</startTimeoutSeconds>
                         </launch>
                     </launches>
                 </configuration>
