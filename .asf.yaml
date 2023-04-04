@@ -2,5 +2,15 @@ github:
   description: "Apache Sling Launchpad Testing (deprecated)"
   homepage: "https://sling.apache.org"
   labels:
-    - sling
-    - deprecated
+  - "sling"
+  - "deprecated"
+  autolink_jira:
+  - "SLING"
+  - "OAK"
+  - "JCR"
+  - "JCRVLT"
+  - "INFRA"
+  - "FELIX"
+  - "MNG"
+notifications:
+  jira_options: "link"
